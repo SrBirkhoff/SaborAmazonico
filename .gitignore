@@ -1,0 +1,3 @@
+#Ignorar pastas geradas automaticamente pelo eclipse
+[Bb]in/
+[Gg]en/
