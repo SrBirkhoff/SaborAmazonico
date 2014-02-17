@@ -14,19 +14,23 @@ public class ReceitaDAO {
 	private SQLiteDatabase bancoDeDados;
 
 	public ReceitaDAO(Context context) {
-		PratosOpenHelper helperReceita = new PratosOpenHelper(context);
+		try{
+			PratosOpenHelper helperReceita = new PratosOpenHelper(context);
+			this.bancoDeDados = helperReceita.getReadableDatabase();
+		}catch(Exception e){
+			Log.d("ciro", "erro: "+e.getMessage());
+		}
 		/*
 		try {
 			helperReceita.criaBaseDados();
 		} catch (IOException e) {
 			Log.e("SaborAmazonico", e.getMessage());
 		}*/
-		this.bancoDeDados = helperReceita.getReadableDatabase();
 	}
 
 	public Cursor getReceitas() {
 		try {
-			return bancoDeDados.query("pratos", null, null, null, null, null, "nome");
+			return bancoDeDados.query("PRATOS", null, null, null, null, null, "NOME");
 		} catch (SQLException e) {
 			Log.e("SaborAmazonico", e.getMessage());
 			return null;

@@ -4,6 +4,7 @@ import android.R;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class PratosOpenHelper extends SQLiteOpenHelper {
 
@@ -16,12 +17,13 @@ public class PratosOpenHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
+		Log.d("ciro", "OPENHELPER 1");
 		String sqlCreate = "CREATE TABLE PRATOS ("
 				+ "ID INTEGER NOT NULL,"
 				+ "NOME VARCHAR(20) NOT NULL," 
 				+ "INGREDIENTES TEXT NOT NULL,"
 				+ "RECEITA TEXT NOT NULL,"
-				+ "RENDIMENTO(20),"
+				+ "RENDIMENTO VARCHAR(20),"
 				+ "DIFICULDADE VARCHAR(20),"
 				+ "TMP_PREP VARCHAR(20),"
 				+ "CATEGORIA VARCHAR(20),"
@@ -29,10 +31,10 @@ public class PratosOpenHelper extends SQLiteOpenHelper {
 				+ "PRIMARY KEY (ID));";
 
 		db.execSQL(sqlCreate);
-		
+		Log.d("ciro", "OPENHELPER 2");
 		String sqlInsert = "INSERT INTO PRATOS VALUES("
 				//ID
-				+ "1,"
+				+ "'1',"
 				//NOME
 				+ "'Receita de Moqueca de Peixe com Pirão',"
 				//INGREDIENTES
@@ -58,19 +60,19 @@ public class PratosOpenHelper extends SQLiteOpenHelper {
 				+ "Pirão: \n"
 				+ "Coloque azeite em uma panela, aqueça em fogo alto, junte cebola, deixe dourar, acrescente coentro e misture por cerca de 2 minutos.  \n"
 				+ "Dissolva farinha de mandioca na água, despeje na panela e cozinhe, mexendo sempre para não empelotar, até obter um pirão homogêneo e cremoso. \n"
-				+ "Tire do fogo e sirva a moqueca acompanhada do pirão."
+				+ "Tire do fogo e sirva a moqueca acompanhada do pirão.',"
 				//RENDIMENTO
-				+ "04 porções"
+				+ "'04 porções',"
 				//DIFICULDADE
-				+ "fácil"
+				+ "'fácil',"
 				//TMP_PREP (tempo de preparo)
-				+ "50 min"
+				+ "'50 min',"
 				//CATEGORIA
-				+ "PEIXES',"
+				+ "'PEIXES',"
 				//FOTO
-				+ "/SaborAmazonico/res/fotos/1.jpg);";
+				+ "'1');";
 		db.execSQL(sqlInsert);
-
+		Log.d("ciro", "OPENHELPER 3");
 	}
 
 	@Override
