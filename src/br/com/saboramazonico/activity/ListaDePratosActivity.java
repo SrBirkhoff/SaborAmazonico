@@ -23,7 +23,6 @@ public class ListaDePratosActivity extends ListActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.receitaDAO = new ReceitaDAO(this);
-		
 		inicializaImagens();
 		List<Receita> receitaList = new ArrayList<Receita>();
         Cursor cursor = receitaDAO.getReceitas();
