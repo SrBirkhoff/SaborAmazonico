@@ -11,16 +11,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class CategoriaActivity extends ListActivity{
+	
+	String[] categorias;
+	
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.d("ciro", "depois");
 		super.onCreate(savedInstanceState);
+		
+		inicializaCategorias();
 		List<String> categoriaList = new ArrayList<String>();
-		String[] categorias = new String[]{
-				"categoria 1",
-				"categoria 2"
-		};
 		for(int i=0;i<categorias.length;i++)
 			categoriaList.add(categorias[i]);
 		setListAdapter(new CategoriaAdapter(this, categoriaList));
@@ -29,11 +30,22 @@ public class CategoriaActivity extends ListActivity{
 	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		Intent it = new Intent(getBaseContext(), ListaDePratosActivity.class);
+		Intent pratosIntent = new Intent(getBaseContext(), ListaDePratosActivity.class);
+		TextView textNome = (TextView) v.findViewById(R.id.nome_categoria);
+		pratosIntent.putExtra("categoria", textNome.getText().toString());
 		try{
-			startActivity(it);
+			startActivity(pratosIntent);
 		}catch(Exception e){
 			Log.d("ciro", "erro: " +e.getMessage());
 		}
+	}
+	
+	private void inicializaCategorias(){
+		categorias = new String[]{
+				"PEIXES",
+				"MASSAS",
+				"CARNES",
+				"DOCES"
+		};
 	}
 }

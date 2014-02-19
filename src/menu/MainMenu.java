@@ -1,5 +1,8 @@
-package br.com.saboramazonico.activity;
+package menu;
 
+import br.com.saboramazonico.activity.R;
+import br.com.saboramazonico.activity.R.id;
+import br.com.saboramazonico.activity.R.layout;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -15,8 +18,7 @@ public class MainMenu extends FragmentActivity implements
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
-	// Tab titles
-	private String[] tabs = { "Home", "Categorias", "Favoritos" };
+	private String[] tabs = { "Home", "Categorias", "Pesquisar" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

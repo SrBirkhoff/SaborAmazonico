@@ -1,4 +1,4 @@
-package br.com.saboramazonico.activity;
+package categoria;
 
 public class Receita {
 	private String nome;

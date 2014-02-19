@@ -1,9 +1,11 @@
-package br.com.saboramazonico.activity;
+package categoria;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.saboramazonico.DAO.ReceitaDAO;
+import br.com.saboramazonico.activity.R;
+import br.com.saboramazonico.activity.R.drawable;
 import br.com.saboramazonico.adapter.ReceitaAdapter;
 
 
@@ -15,22 +17,21 @@ import android.util.Log;
 
 public class ListaDePratosActivity extends ListActivity{
 
-
-	private CursorAdapter dados;
 	private ReceitaDAO receitaDAO;
 	private int[] images;
+	private String categoria;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.d("ciro", "lista de pratos 1");
 		this.receitaDAO = new ReceitaDAO(this);
-		Log.d("ciro", "lista de pratos 2");
 		inicializaImagens();
 		List<Receita> receitaList = new ArrayList<Receita>();
-		Log.d("ciro", "lista de pratos 3");
-        Cursor cursor = receitaDAO.getReceitas();
-		Log.d("ciro", "lista de pratos 4");
+		
+		//captura informação mandada pela activity anterior
+		categoria = getIntent().getStringExtra("categoria");
+		
+        Cursor cursor = receitaDAO.getReceitas(categoria);
         for (int i = 0; i < cursor.getCount(); i++) {
         	cursor.moveToNext();
             Receita receita = new Receita();

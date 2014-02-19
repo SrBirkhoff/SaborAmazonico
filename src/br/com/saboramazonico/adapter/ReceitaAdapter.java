@@ -2,8 +2,9 @@ package br.com.saboramazonico.adapter;
 
 import java.util.List;
 
+import categoria.Receita;
+
 import br.com.saboramazonico.activity.R;
-import br.com.saboramazonico.activity.Receita;
 
 import android.content.Context;
 import android.view.LayoutInflater;

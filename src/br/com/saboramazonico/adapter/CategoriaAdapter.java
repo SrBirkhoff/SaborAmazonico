@@ -2,6 +2,8 @@ package br.com.saboramazonico.adapter;
 
 import java.util.List;
 
+import categoria.Receita;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import br.com.saboramazonico.activity.R;
-import br.com.saboramazonico.activity.Receita;
 
 public class CategoriaAdapter extends BaseAdapter{
 	private Context context;

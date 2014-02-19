@@ -1,19 +1,22 @@
-package br.com.saboramazonico.activity;
+package menu;
 
+import br.com.saboramazonico.activity.R;
+import br.com.saboramazonico.activity.R.layout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CategoriasFragment extends Fragment {
+public class FavoritosFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+		View rootView = inflater.inflate(R.layout.fragment_favoritos, container, false);
 		
 		return rootView;
 	}
+
 }
